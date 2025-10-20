@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(225, 38%, 36%);
+  --muted: hsl(225, 38%, 36%, 0.1);
+  --muted-foreground: hsl(225, 38%, 36%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(225, 38%, 36%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(225, 38%, 36%);
+  --border: hsl(225, 38%, 36%, 0.2);
+  --input: hsl(225, 38%, 36%, 0.2);
+  --primary: hsl(225, 38%, 36%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(225, 38%, 36%, 0.1);
+  --secondary-foreground: hsl(225, 38%, 36%);
+  --accent: hsl(33, 88%, 58%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(225, 38%, 36%);
+  --radius: 0.5rem;
+  
+  /* Custom accent colors */
+  --warm-accent: hsl(33, 88%, 58%);
+  --warm-accent-light: hsl(33, 88%, 65%);
+  --warm-accent-dark: hsl(33, 88%, 50%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(225, 38%, 36%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1, 'swsh' 1;
+  }
+  
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  /* Apply sharp typography to all text elements */
+  *, *::before, *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .text-sharp {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Ensure all text elements use proper font families */
+  p, span, div, a, button, input, textarea, label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    letter-spacing: -0.011em;
+  }
+  
+  /* Navigation and UI text */
+  .nav-text, .button-text, .menu-text {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .gradient-border-b {
+    background: linear-gradient(to right, transparent, rgba(59, 74, 122, 0.1), transparent) bottom / 100% 1px no-repeat;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .gradient-section {
+    background: linear-gradient(to bottom, #FFFFFF 0%, rgba(59, 74, 122, 0.02) 50%, #FFFFFF 100%);
+  }
+  
+  .header-gradient {
+    background: linear-gradient(to bottom, rgba(59, 74, 122, 0.05) 0%, #FFFFFF 100%);
+  }
+  
+  /* Warm accent utilities */
+  .bg-warm-accent {
+    background-color: hsl(var(--warm-accent));
+  }
+  
+  .bg-warm-accent-light {
+    background-color: hsl(var(--warm-accent-light));
+  }
+  
+  .bg-warm-accent-dark {
+    background-color: hsl(var(--warm-accent-dark));
+  }
+  
+  .text-warm-accent {
+    color: hsl(var(--warm-accent));
+  }
+  
+  .text-warm-accent-light {
+    color: hsl(var(--warm-accent-light));
+  }
+  
+  .text-warm-accent-dark {
+    color: hsl(var(--warm-accent-dark));
+  }
+  
+  .border-warm-accent {
+    border-color: hsl(var(--warm-accent));
+  }
+  
+  .accent-gradient {
+    background: linear-gradient(135deg, hsl(var(--warm-accent)) 0%, hsl(var(--warm-accent-light)) 100%);
+  }
+  
+  .warm-gradient-section {
+    background: linear-gradient(to bottom, #FFFFFF 0%, hsl(var(--warm-accent), 0.02) 50%, #FFFFFF 100%);
+  }
+  
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Page Transition Animations */
+  .page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .page-transition.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-loading {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Animation Utilities */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .fade-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .fade-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .slide-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .slide-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .slide-in-down {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .slide-in-down.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger animations */
+  .animate-delay-1 {
+    transition-delay: 0.1s;
+  }
+  
+  .animate-delay-2 {
+    transition-delay: 0.2s;
+  }
+  
+  .animate-delay-3 {
+    transition-delay: 0.3s;
+  }
+  
+  .animate-delay-4 {
+    transition-delay: 0.4s;
+  }
+  
+  .animate-delay-5 {
+    transition-delay: 0.5s;
+  }
+  
+  .mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+  
+  .counter {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Chapter transition animations */
+.chapter-fade-enter {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chapter-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.chapter-fade-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.chapter-fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+}
